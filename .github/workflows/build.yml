@@ -17,6 +17,6 @@ jobs:
           fetch-depth: "0"
       - name: Build docker image
       - name: Push docker image
-              run:
-                echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ilyamochalov --password-stdin
-                docker push ${{ steps.determine_tag.outputs.image_full }}
+        run: |
+          echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ilyamochalov --password-stdin
+          docker push ${{ steps.determine_tag.outputs.image_full }}
